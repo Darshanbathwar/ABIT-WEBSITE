@@ -11,8 +11,9 @@
   },
   "dependencies": {
     "@gsap/react": "^2.1.2",
+    "@studio-freight/lenis": "^1.0.42",
     "gsap": "^3.13.0",
-    "motion": "^12.23.13",
+    "motion": "^12.23.16",
     "ogl": "^1.0.11",
     "react": "^19.1.1",
     "react-dom": "^19.1.1",

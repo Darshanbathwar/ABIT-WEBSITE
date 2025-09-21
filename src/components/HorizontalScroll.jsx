@@ -16,14 +16,14 @@ function HorizontalScroll() {
     {
       translateX: "-150vw ",
       ease: "none",
-      duration: 20,
+      duration: 200,
       scrollTrigger: {
         trigger: racer.current,
         start: "top 100",
         end:"100 top",
-        scrub: 1,
+        scrub: 2,
         pin: true,
-        markers:true,
+        markers:false,
 
       },
     }
@@ -35,7 +35,7 @@ function HorizontalScroll() {
   })
 
   return (
-      <div ref={racer} className="flex flex-row w-max gap-10 py-10 px-5 md:h-[110vh] h-[100vh]">
+      <div ref={racer} className="flex flex-row w-max gap-10 py-10 px-5 md:h-[110vh] h-full">
         
         <img src={valedictory} alt="" className="md:h-[70vh] h-[50vh]"/>
         <img src={valedictory} alt="" className="md:h-[70vh] h-[50vh]"/>

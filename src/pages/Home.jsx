@@ -1,18 +1,15 @@
 import "../App.css";
-import Navbar from "../components/Navbar";
 import GradientBlinds from "../components/GradientBlinds";
 import CoreTeam from "../components/CoreTeam";
 import MotivatorsSection from "../components/MotivatorsSection";
 import SponsorsSection from "../components/SponsorsSection";
 import HeroSection from "../components/HeroSection";
-import Footer from "../components/Footer";
 import ScrollVelocity from "../components/ScrollVelocity";
 import HorizontalScroll from "../components/HorizontalScroll";
 
 function Home() {
   return (
-    <div className="overflow-hidden w-full md:h-auto h-[660vh] flex flex-col bg-black">
-      {/*This is the main body*/}
+    <div className="overflow-hidden w-full md:h-full h-full flex flex-col bg-black">
       <div
         style={{
           width: "100%",
@@ -39,27 +36,30 @@ function Home() {
         />
       </div>
 
-
       <HeroSection />
-
-      
 
       <div className="coreteam mt-20">
         <CoreTeam />
       </div>
       <ScrollVelocity
-  texts={['Association of Budding Information Technocrats ', 'Talented Minds ⚪ Diligent Hearts ⚪']} 
-  velocity="100" 
-  className="custom-scroll-text text-white py-3"
-/>
+        texts={[
+          "Association of Budding Information Technocrats ",
+          "Talented Minds ✦ Diligent Hearts ✦",
+        ]}
+        velocity="100"
+        className="custom-scroll-text text-white py-3"
+      />
 
       <MotivatorsSection />
 
       <div className="sponsors">
         <SponsorsSection />
       </div>
-          <h2 className="text-4xl md:text-5xl font-bold z-10 text-white mx-auto pt-10">Explore Our Work</h2>
-                <HorizontalScroll/>
+      <h2 className="text-4xl md:text-5xl font-bold z-10 text-white mx-auto pt-10">
+        Explore Our Work
+      </h2>
+        <HorizontalScroll />
+        
     </div>
   );
 }

@@ -44,11 +44,9 @@ const Footer = () => {
   );
 
   return (
-    <footer className="bg-black text-gray-300 border-t border-gray-800 mt-10">
+    <footer className="bg-black text-gray-300 border-t border-gray-800 ">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-        {/* Top section: Logo, Address, and Links */}
         <div className="flex flex-col lg:flex-row gap-12 lg:gap-8">
-          {/* Left side: Company Info & Address */}
           <div className="lg:w-2/5 space-y-6">
             <img src={banner} alt="ABIT Logo" className="h-28 mx-auto lg:mx-0" />
             <div className="text-gray-400 text-center lg:text-left">
@@ -85,7 +83,7 @@ const Footer = () => {
         </div>
 
         {/* Bottom section: Copyright and Social Links */}
-        <div className="mt-16 pt-8 border-t border-gray-800 flex flex-col sm:flex-row justify-between items-center gap-6">
+        <div className="mt-16 border-t border-gray-800 flex flex-col sm:flex-row justify-between items-center gap-6">
           <div className="text-sm text-gray-500 text-center sm:text-left">
             <p>&copy; {new Date().getFullYear()} ABITRGIT. All rights reserved.</p>
             <div className="mt-2 space-x-4">
