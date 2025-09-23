@@ -9,7 +9,8 @@ import HorizontalScroll from "../components/HorizontalScroll";
 
 function Home() {
   return (
-    <div className="overflow-hidden w-full md:h-full h-full flex flex-col bg-black">
+    <>
+    <div className="overflow-hidden w-full h-full  flex flex-col bg-black">
       <div
         style={{
           width: "100%",
@@ -58,9 +59,13 @@ function Home() {
       <h2 className="text-4xl md:text-5xl font-bold z-10 text-white mx-auto pt-10">
         Explore Our Work
       </h2>
-        <HorizontalScroll />
-        
+
+      
+      
     </div>
+            <HorizontalScroll />
+
+    </>
   );
 }
 

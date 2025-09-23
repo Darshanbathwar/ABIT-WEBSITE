@@ -1,53 +1,87 @@
-import React from "react";
-import gsap from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
-import valedictory from "../assets/valedictory.png";
-import { useGSAP } from "@gsap/react"; 
-import { useRef,useEffect } from "react";
+import { motion, useTransform, useScroll } from "framer-motion";
+import { useRef } from "react";
 
-function HorizontalScroll() {
-  const racer = useRef(null);
-  gsap.registerPlugin(ScrollTrigger);
 
-  useEffect(() => {
-    const pin = gsap.fromTo(racer.current,{
-      translateX:0
-    },
-    {
-      translateX: "-150vw ",
-      ease: "none",
-      duration: 200,
-      scrollTrigger: {
-        trigger: racer.current,
-        start: "top 100",
-        end:"100 top",
-        scrub: 2,
-        pin: true,
-        markers:false,
+export default function HorizontalScroll (){
+  const targetRef = useRef(null);
+  const { scrollYProgress } = useScroll({
+    target: targetRef,
+  });
 
-      },
-    }
-    )
-    return () => {
-      pin.scrollTrigger.kill();
-      pin.kill();
-    } 
-  })
+  const x = useTransform(scrollYProgress, [0, 1], ["10%", "-85%"]);
 
   return (
-      <div ref={racer} className="flex flex-row w-max gap-10 py-10 px-5 md:h-[110vh] h-full">
-        
-        <img src={valedictory} alt="" className="md:h-[70vh] h-[50vh]"/>
-        <img src={valedictory} alt="" className="md:h-[70vh] h-[50vh]"/>
-        <img src={valedictory} alt="" className="md:h-[70vh] h-[50vh]"/>
-        <img src={valedictory} alt="" className="md:h-[70vh] h-[50vh]"/>
-        <img src={valedictory} alt="" className="md:h-[70vh] h-[50vh]"/>
-        <img src={valedictory} alt="" className="md:h-[70vh] h-[50vh]"/>
-        <img src={valedictory} alt="" className="md:h-[70vh] h-[50vh]"/>
-
+    <section ref={targetRef} className="relative h-[300vh] bg-black">
+      <div className="sticky top-0 flex h-screen  items-center overflow-hidden">
+        <motion.div style={{ x }} className="flex gap-4">
+          {cards.map((card) => {
+            return <Card card={card} key={card.id} />;
+          })}
+        </motion.div>
       </div>
-    
+      <div className="h-screen"></div>
+    </section>
   );
-}
+};
 
-export default HorizontalScroll;
+const Card = ({ card }) => {
+  return (
+    <div
+      key={card.id}
+      className="group relative md:size-[450px] size-[300px] overflow-hidden bg-neutral-200"
+    >
+      <div
+        style={{
+          backgroundImage: `url(${card.url})`,
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+        }}
+        className="absolute inset-0 z-0 transition-transform duration-300 group-hover:scale-110"
+      ></div>
+      <div className="absolute inset-0 z-10 grid place-content-center">
+        <p className="bg-gradient-to-br from-white/20 to-white/0 p-8 text-6xl font-black uppercase text-white backdrop-blur-lg">
+          {card.title}
+        </p>
+      </div>
+    </div>
+  );
+};
+
+
+const cards = [
+  {
+    url: "",
+    title: "Image 1",
+    id: 1,
+  },
+  {
+    url: "",
+    title: "Image 2",
+    id: 2,
+  },
+  {
+    url: "",
+    title: "Image 3",
+    id: 3,
+  },
+  {
+    url: "",
+    title: "Image 4",
+    id: 4,
+  },
+  {
+    url: "",
+    title: "Image 5",
+    id: 5,
+  },
+  {
+    url: "",
+    title: "Image 6",
+    id: 6,
+  },
+  {
+    url: "",
+    title: "Image 7",
+    id: 7,
+  },
+];
