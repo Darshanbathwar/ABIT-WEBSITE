@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import TeamDisplay from '../components/TeamDisplay';
-import DotGrid from '../Components/DotGrid';
+import DotGrid from '../components/DotGrid';
 
 const coreTeam2526 = [
   { name: "John Doe", role: "President", imageUrl: "https://images.unsplash.com/photo-1564564321837-a57b7070ac4f?fit=crop&w=500&h=500&q=80", featured: true },
@@ -17,7 +17,6 @@ const pastCoreTeam2425 = [
     { name: "John Doe", role: "Treasurer '24", imageUrl: "https://images.unsplash.com/photo-1564564321837-a57b7070ac4f?fit=crop&w=500&h=500&q=80" },
 ];
 
-// --- COMBINED DATA STRUCTURE FOR THE APP ---
 const allTeamsData = [
     { year: "2025-2026", title: "Core 25-26", members: coreTeam2526 },
     { year: "2024-2025", title: "Past Core 24-25", members: pastCoreTeam2425 },
@@ -30,17 +29,13 @@ const allTeamsData = [
 
 
 
-// --- MAIN APP COMPONENT (Renamed to OurTeam) ---
 export default function OurTeam() {
-  // State to track which past years are currently expanded.
   const [selectedYears, setSelectedYears] = useState([]);
   
-  // Separate the current team from the past teams
   const currentTeam = allTeamsData.find(team => team.year === "2025-2026");
   const pastTeams = allTeamsData.filter(team => team.year !== "2025-2026");
 
 
-  // This function handles the toggle logic for past teams
   const handleYearToggle = (year) => {
     if (selectedYears.includes(year)) {
       setSelectedYears(selectedYears.filter(y => y !== year));
@@ -73,7 +68,7 @@ export default function OurTeam() {
 </div>
         <TeamDisplay 
             teamMembers={currentTeam.members}
-            backgroundClass="bg-transparent" // Override the default dark background
+            backgroundClass="bg-transparent"
         />
       </div>
 
@@ -89,7 +84,7 @@ export default function OurTeam() {
                 {team.title}
               </h2>
             </button>
-            {/* If the selected years array includes this team's year, render the details */}
+
             {selectedYears.includes(team.year) && (
               <TeamDisplay
                 title={team.title}

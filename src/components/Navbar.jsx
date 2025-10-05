@@ -13,6 +13,7 @@ function Navbar() {
     { label: <Link to="/faculty" className="block w-full h-full px-4 py-2">Faculty</Link>, href: "/faculty" },
   ];
 
+  
   return (
     <div className="mynav h-[9vh] md:h-[9vh] fixed top-0 z-50 w-full flex md:justify-center bg-transparent">
         

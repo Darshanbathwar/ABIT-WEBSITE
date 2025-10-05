@@ -1,5 +1,5 @@
 import React from 'react';
-import azent from '../assets/azent.png';
+import azent from '../assets/Azent.png';
 import admitabroad from '../assets/admit.png';
 import ats from '../assets/ATS.jpeg';
 
